@@ -21,12 +21,92 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Css link -->
+    <link rel="stylesheet" href="./style.css">
+
     <title>English Janala</title>
 </head>
 
 <body>
 
-<h1>Hello English janala</h1>
+    <!-- Header section -->
+    <header class="">
+        <div class="navbar bg-base-100 shadow-sm justify-between">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-3">
+                        <li> <a href="" class=" btn btn-outline btn-primary"><i
+                                    class="fa-solid fa-circle-question"></i>FAQ</a></li>
+                        <li> <a href="" class=" btn btn-outline btn-primary"><i
+                                    class="fa-solid fa-book-open"></i>LESSON</a></li>
+                        <li> <a href="" class=" btn btn-outline btn-primary"><i
+                                    class="fa-solid fa-right-from-bracket"></i>LOG OUT</a></li>
+                    </ul>
+                </div>
+                <div class=" flex gap-x-1">
+                    <h1 class=" text-3xl font-bold">ENGLISH</h1>
+                    <img src="./assets/logo.png" alt="">
+                    <span class=" text-3xl font-semibold">জানালা</span>
+                </div>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 space-x-3">
+                    <li> <a href="" class=" btn btn-outline btn-primary"><i
+                                class="fa-solid fa-circle-question"></i>FAQ</a></li>
+                    <li> <a href="" class=" btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>LESSON</a>
+                    </li>
+                    <li> <a href="" class=" btn btn-outline btn-primary"><i
+                                class="fa-solid fa-right-from-bracket"></i>LOG OUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <div class=" flex">
+        <div class=" w-1/2 my-auto px-18 space-y-3">
+            <div class=" space-y-3">
+                <h1 class=" text-3xl font-semibold"><span class=" text-blue-500">English</span> is Easy!!</h1>
+                <p class=" font-bangla leading-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+                    আপনার দক্ষতা বাড়াতে চান, আমাদের
+                    Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+            </div>
+            <div>
+                <fieldset class="fieldset flex flex-col gap-3">
+                    <input type="email" class="input" placeholder="Enter your name" />
+                    <input type="password" class="input" placeholder="Enter password" />
+                    <button class="btn btn-primary self-start">Get start</button>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class=" w-1/2">
+            <img class=" mx-auto" src="./assets/hero-student.png" alt="">
+        </div>
+    </div>
+
+    <!-- Vocabulary section -->
+    <section class=" px-9 mt-28 space-y-4 max-w-screen-2xl mx-auto">
+        <h1 class=" text-center text-3xl font-semibold"><span class=" text-blue-500"> Let's </span>Learn Vocabularies
+        </h1>
+
+        <div id="level-container" class=" space-x-3 flex justify-center ">
+        </div>
+
+        <div id="word-container" class=" bg-base-200 p-10 grid grid-cols-3 gap-3">
+            
+        </div>
+    </section>
+
+
     <script src="./scrip.js"></script>
 </body>
 
