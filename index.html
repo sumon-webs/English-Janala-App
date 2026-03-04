@@ -30,11 +30,11 @@
 <body>
 
     <!-- Header section -->
-    <header class="">
+    <header class=" px-2 sm:px-0">
         <div class="navbar bg-base-100 shadow-sm justify-between">
-            <div class="navbar-start">
-                <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <div class=" grid grid-cols-2">
+                <div class="dropdown grid grid-cols-2">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden justify-start w-fit">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -51,10 +51,10 @@
                                     class="fa-solid fa-right-from-bracket"></i>LOG OUT</a></li>
                     </ul>
                 </div>
-                <div class=" flex gap-x-1">
-                    <h1 class=" text-3xl font-bold">ENGLISH</h1>
+                <div class=" flex gap-x-1 ">
+                    <h1 class="text-2xl sm:text-3xl font-bold">ENGLISH</h1>
                     <img src="./assets/logo.png" alt="">
-                    <span class=" text-3xl font-semibold">জানালা</span>
+                    <span class=" text-2xl sm:text-3xl font-semibold">জানালা</span>
                 </div>
             </div>
             <div class="navbar-center hidden lg:flex">
@@ -71,15 +71,15 @@
     </header>
 
     <!-- Hero section -->
-    <div class=" flex">
-        <div class=" w-1/2 my-auto px-18 space-y-3">
-            <div class=" space-y-3">
-                <h1 class=" text-3xl font-semibold"><span class=" text-blue-500">English</span> is Easy!!</h1>
-                <p class=" font-bangla leading-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
+    <div class=" flex flex-col-reverse sm:flex-row">
+        <div class="w-full sm:w-1/2 my-auto sm:px-18 space-y-3">
+            <div class=" space-y-3 px-4 sm:px-0">
+                <h1 class="text-2xl sm:text-3xl font-semibold"><span class=" text-blue-500">English</span> is Easy!!</h1>
+                <p class="  font-bangla leading-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
                     আপনার দক্ষতা বাড়াতে চান, আমাদের
                     Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
             </div>
-            <div>
+            <div class=" px-4 sm:px-0">
                 <fieldset class="fieldset flex flex-col gap-3">
                     <input type="email" class="input" placeholder="Enter your name" />
                     <input type="password" class="input" placeholder="Enter password" />
@@ -88,17 +88,17 @@
             </div>
         </div>
 
-        <div class=" w-1/2">
+        <div class=" sm:w-1/2">
             <img class=" mx-auto" src="./assets/hero-student.png" alt="">
         </div>
     </div>
 
     <!-- Vocabulary section -->
     <section class=" px-9 mt-28 space-y-4 max-w-screen-2xl mx-auto">
-        <h1 class=" text-center text-3xl font-semibold"><span class=" text-blue-500"> Let's </span>Learn Vocabularies
+        <h1 class=" text-center text-2xl sm:text-3xl font-semibold"><span class=" text-blue-500"> Let's </span>Learn Vocabularies
         </h1>
 
-        <div id="level-container" class=" space-x-3 flex justify-center ">
+        <div id="level-container" class=" space-x-3 flex justify-center flex-wrap gap-3">
         </div>
 
         <div class="join flex justify-center">
@@ -120,9 +120,9 @@
 
         <div id="word-container" class=" bg-base-200 p-10 grid grid-cols-3 gap-3 ">
 
-            <div id="select-next-msg" class=" bg-base-200 text-center py-16 space-y-3 col-span-full">
+            <div id="select-next-msg" class=" bg-base-200 text-center py-7 sm:py-16 space-y-3 col-span-full">
                 <p class=" text-gray-500">আপনি এখনো কোনো লেসন select করেননি</p>
-                <p class=" text-3xl">যেকোনো একটি লেসন select করুন</p>
+                <p class="text-2xl sm:text-3xl">যেকোনো একটি লেসন select করুন</p>
             </div>
         </div>
     </section>
@@ -138,11 +138,11 @@
     </section>
 
 
-    <section class=" my-36 max-w-screen-2xl mx-auto  space-y-12">
-        <h1 class=" text-3xl font-semibold text-center"><span class=" text-blue-500">Frequently</span> Asked Questions
+    <section class=" my-36 max-w-screen-2xl mx-auto space-y-6  sm:space-y-12">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-center"><span class=" text-blue-500">Frequently</span> Asked Questions
         </h1>
         <div>
-            <ol class="  space-y-4">
+            <ol class=" space-y-2  sm:space-y-4 px-3 sm:px-0">
                 <li class="flex justify-between bg-base-200 p-3 rounded-sm ">
                     <div>
                         <p>1. How can I start learning English on this website?</p>
@@ -171,12 +171,12 @@
         </div>
     </section>
     <hr class="border-t-2 border-red-100  mx-auto my-6">
-    <footer class="footer sm:footer-horizontal  items-center py-20 max-w-screen-2xl mx-auto ">
-        <aside class=" items-center space-y-2">
+    <footer class="footer sm:footer-horizontal  sm:items-center py-9 sm:py-20 max-w-screen-2xl mx-auto justify-center ">
+        <aside class=" items-center sm:space-y-2">
             <div class=" flex gap-x-1">
-                <h1 class=" text-3xl font-bold">ENGLISH</h1>
+                <h1 class="text-2xl sm:text-3xl font-bold">ENGLISH</h1>
                 <img src="./assets/logo.png" alt="">
-                <span class=" text-3xl font-semibold">জানালা</span>
+                <span class=" text-2xl sm:text-3xl font-semibold">জানালা</span>
             </div>
             <p>ইংরেজি শিখুন সহজে</p>
             <p class=" text-[12px]">Providing ED-Tech Applications since 2025</p>
