@@ -1,3 +1,9 @@
+const creatlements = (arr) => {
+    const create = arr.map((el) => `<span class="btn"> ${el} <span>`)
+    console.log(create);
+    return create.join("")
+}
+
 const levelGet = () => {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then(res => res.json())
@@ -21,14 +27,78 @@ const display = (item) => {
 
 }
 
+const loading = (event) => {
+    if (event == true) {
+        document.getElementById("loading-container").classList.remove("hidden")
+        document.getElementById("word-container").classList.add("hidden")
+
+    } else {
+        document.getElementById("loading-container").classList.add("hidden")
+        document.getElementById("word-container").classList.remove("hidden")
+    }
+}
+
+document.getElementById("search-btn").addEventListener("click", () => {
+    const inputText = document.getElementById("input-text")
+    const inputValue = inputText.value.trim().toLowerCase()
+    
+    fetch("https://openapi.programming-hero.com/api/words/all")
+        .then(res => res.json())
+        .then(data => {
+            const dataValue = data.data
+            const filterWords = dataValue.filter(word => word.word.toLowerCase().includes(inputValue))
+            displayWords(filterWords)
+        })
+})
+
+const wordDetailsLoad = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`
+    const res = await fetch(url);
+    const details = await res.json();
+    displayDetailsWord(details.data)
+}
+
+const displayDetailsWord = (word) => {
+    const wordDetails = document.getElementById("details")
+    wordDetails.innerHTML = `
+        <div class="text-2xl flex gap-2 font-bold">
+            <h1 >${word.word}</h1>
+            (<i class="fa-solid fa-microphone-lines"></i>
+            <p>${word.pronunciation})</p>
+        </div>
+
+         <div>
+             <p class=" font-bold">Meaning</p>
+             <p>${word.meaning}</p>
+         </di   
+         <div>
+             <p class="font-bold">Example</p>
+             <p>${word.sentence}</p>
+         </div>
+         <div>
+             <p class=" font-bold">সমার্থক শব্দ</p>
+             <div class="">
+                 ${creatlements(word.synonyms)}
+             </div>
+         </div> 
+         <div class="modal-action">
+             <form method="dialog">
+                 <button class="btn btn-primary">Complete Learning</button>
+             </form>
+         </div>
+    `
+
+    document.getElementById("word_modal").showModal()
+}
 
 const loadLevelWord = (id) => {
+    loading(true)
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
         .then(res => res.json())
         .then(json => {
             const outline = document.querySelectorAll(".lesson-btn")
-            outline.forEach(item=> item.classList.add("btn-outline"))
+            outline.forEach(item => item.classList.add("btn-outline"))
 
             const lessonBtn = document.getElementById(`lesson-btn-${id}`)
             lessonBtn.classList.remove("btn-outline")
@@ -48,13 +118,13 @@ const displayWords = (id) => {
                 <h1 class=" font-bold text-2xl">${element.word ? element.word : "Word not found"}</h1>
                 <p>Meaning / Punctuation</p>
                 <p>${element.meaning ? element.meaning : "Meaning not found"} / ${element.pronunciation ? element.pronunciation : "Pronunciation not found"}</p>
-                <div class=" flex justify-between"><i class="fa-solid fa-circle-info"></i><i class="fa-solid fa-volume-high"></i></div>
+                <div class=" flex justify-between"><i onclick="wordDetailsLoad(${element.id})" class="fa-solid fa-circle-info "></i><i class="fa-solid fa-volume-high"></i></div>
             </div>
         `
-        
+
         wordsContainer.appendChild(div)
     })
-
+    loading(false)
     if (wordsContainer.children.length === 0) {
         wordsContainer.innerHTML = `
         <div id="select-next-msg" class=" bg-base-200 text-center py-16 space-y-3 col-span-full">
