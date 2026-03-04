@@ -1,6 +1,11 @@
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
 const creatlements = (arr) => {
     const create = arr.map((el) => `<span class="btn"> ${el} <span>`)
-    console.log(create);
     return create.join("")
 }
 
@@ -118,7 +123,7 @@ const displayWords = (id) => {
                 <h1 class=" font-bold text-2xl">${element.word ? element.word : "Word not found"}</h1>
                 <p>Meaning / Punctuation</p>
                 <p>${element.meaning ? element.meaning : "Meaning not found"} / ${element.pronunciation ? element.pronunciation : "Pronunciation not found"}</p>
-                <div class=" flex justify-between"><i onclick="wordDetailsLoad(${element.id})" class="fa-solid fa-circle-info "></i><i class="fa-solid fa-volume-high"></i></div>
+                <div class=" flex justify-between"><i onclick="wordDetailsLoad(${element.id})" class="fa-solid fa-circle-info "></i><i onclick="pronounceWord('${element.word}')" class="fa-solid fa-volume-high"></i></div>
             </div>
         `
 
