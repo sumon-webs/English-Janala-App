@@ -10,6 +10,7 @@ const creatlements = (arr) => {
 }
 
 const levelGet = () => {
+    loading(true)
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then(res => res.json())
         .then(json => {
@@ -28,6 +29,7 @@ const display = (item) => {
         <button id="lesson-btn-${element.level_no}" onclick="loadLevelWord(${element.level_no})" class="lesson-btn btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson- ${element.level_no}</button>
         `
         levelContainer.appendChild(btn)
+        loading(false)
     });
 
 }
@@ -119,8 +121,8 @@ const displayWords = (id) => {
     id.forEach(element => {
         const div = document.createElement('div')
         div.innerHTML = `
-        <div class=" bg-white space-y-3 px-6 py-12 rounded-sm text-center">
-                <h1 class=" font-bold text-2xl">${element.word ? element.word : "Word not found"}</h1>
+        <div class=" bg-white space-y-1 sm:space-y-3 px-2 sm:px-6 py-4 sm:py-12 rounded-sm text-center">
+                <h1 class=" font-bold sm:text-2xl">${element.word ? element.word : "Word not found"}</h1>
                 <p>Meaning / Punctuation</p>
                 <p>${element.meaning ? element.meaning : "Meaning not found"} / ${element.pronunciation ? element.pronunciation : "Pronunciation not found"}</p>
                 <div class=" flex justify-between"><i onclick="wordDetailsLoad(${element.id})" class="fa-solid fa-circle-info "></i><i onclick="pronounceWord('${element.word}')" class="fa-solid fa-volume-high"></i></div>
